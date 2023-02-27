@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Employee</title>
+	<script
+		id="sap-ui-bootstrap"
+		src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_fiori_3"
+		data-sap-ui-resourceroots='{
+			"Employee": "./"
+		}'
+		data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-async="true">
+	</script>
+	<script src="cordova.js"></script>
+	<script src="cordova_plugins.js"></script>
+	<script src="./js/external/r.js"></script>
+	<!-- Google Api Files -->
+	<script src="https://apis.google.com/js/api.js"></script>
+    <script defer src="https://accounts.google.com/gsi/client"></script>
+</head>
+<body class="sapUiBody" id="content">
+	<link rel="stylesheet" href="./css/style.css">
+	<div data-sap-ui-component data-name="Employee" data-id="container" data-settings='{"id" : "Employee"}'></div>
+</body>
+</html>

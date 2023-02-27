@@ -1,0 +1,148 @@
+<mvc:View xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+controllerName="Employee.controller.Detail"
+xmlns="sap.m"
+xmlns:mvc="sap.ui.core.mvc" >
+    <Page backgroundDesign="Transparent">
+        <customHeader>
+            <Toolbar >
+                <Button icon="sap-icon://menu2" />
+                <Button type="Back" press=".onNavBack"></Button>
+                <Title text="{i18n>Employee}"></Title>
+                <ToolbarSpacer />
+                <Button text="{i18n>New}" iconFirst="false" icon="sap-icon://add" press="onCreate"/>
+                <Button text="{i18n>Save}" iconFirst="false" icon="sap-icon://save" press="onSave" visible="{/editMode}"/>
+                <Button text="{i18n>Edit}" iconFirst="false" icon="sap-icon://edit" press="onEdit" visible="{= !${/editMode}}"/>
+            </Toolbar>
+        </customHeader>
+
+        <CustomListItem class="ListItemBlock sapUiTinyMargin" press=".onClickEmployee">
+            <FlexBox width="100%" wrap="WrapReverse">
+                <VBox width="50%">
+                    <!-- <layoutData >
+                        <FlexItemData minWidth="300px" />
+                    </layoutData> -->
+                    <!-- <Title text="{employee>EmployeeId}" /> -->
+                    
+                    <form:Form >
+                        <form:layout>
+                            <form:ResponsiveGridLayout />
+                        </form:layout>
+                        <form:FormContainer>
+                            <form:FormElement >
+                                <Title text="{employee>EmployeeId}" class="itemHeaderFont"></Title>
+                            </form:FormElement>
+                            <form:FormElement >
+                                <HBox >
+                                    <core:Icon src="sap-icon://employee" class="hiddenIcon"/><Text class="sapUiTinyMarginBegin" text="{employee>FirstName} {employee>LastName}"></Text>
+                                </HBox>
+                            </form:FormElement>
+                            <form:FormElement >
+                                <HBox >
+                                    <core:Icon src="sap-icon://technical-object" class="" color="rgb(0, 153, 255)"/><Text class="sapUiTinyMarginBegin" text="{employee>Company}"></Text>
+                                </HBox>
+                                <!-- <ObjectStatus text="{employee>Company}" icon="sap-icon://technical-object" /> -->
+                            </form:FormElement>
+                            <form:FormElement >
+                                <HBox >
+                                    <core:Icon src="sap-icon://calendar" class="" /><Text class="sapUiTinyMarginBegin" text="{path:'employee>JoiningDate', formatter:'.formatter.dateModifier'}"></Text>
+                                </HBox>
+                                <!-- <ObjectStatus text="{path:'employee>JoiningDate', formatter:'.formatter.dateModifier'}" icon="sap-icon://calendar" /> -->
+                            </form:FormElement>
+                        </form:FormContainer>
+                    </form:Form>
+                </VBox>
+                <FlexBox alignItems="Center" justifyContent="Center" width="50%">
+                    <Image src="{employee>Image}"  height="6rem" class="listImg"></Image>
+                </FlexBox>
+            </FlexBox>
+        </CustomListItem>
+
+        <Panel headerText="{i18n>Detail}" expandable="true" expanded="true" class="ListItemBlock sapUiTinyMargin">
+
+            <form:Form width="100%" editable="{/editMode}">
+                <form:layout>
+                    <form:ResponsiveGridLayout  
+                    singleContainerFullSize="false" 
+                    labelSpanL="2"
+                    labelSpanM="3" />
+                </form:layout>
+                <form:FormContainer>
+                    <form:FormElement label="{i18n>CompanyAddress}">
+                        <VBox >
+                            <Text text="{employee>CompanyAddress}" visible="{= !${/editMode}}"></Text>
+                            <Input value="{employee>CompanyAddress}" visible="{/editMode}"></Input>
+                        </VBox>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>EmployeeSalary}">
+                        <VBox >
+                            <Text text="{employee>Salary}" visible="{= !${/editMode}}"></Text>
+                            <Input value="{employee>Salary}" visible="{/editMode}"></Input>
+                        </VBox>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>DateOfJoining}">
+                        <VBox >
+                            <Text text="{path:'employee>JoiningDate', formatter:'.formatter.dateModifier'}" visible="{= !${/editMode}}"></Text>
+                            <DatePicker value="{employee>JoiningDate}" valueFormat="yyyy/MM/dd" displayFormat="MMM dd, yyyy"  visible="{/editMode}"></DatePicker>
+                        </VBox>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Designation}">
+                        <VBox >
+                            <Text text="{employee>Designation}" visible="{= !${/editMode}}"></Text>
+                            <Input value="{employee>Designation}" visible="{/editMode}"></Input>
+                        </VBox>
+                    </form:FormElement>
+                </form:FormContainer>
+            </form:Form>
+
+
+            <!-- <HBox>
+                <Label text="{i18n>CompanyAddress}" textAlign="Left" class="sapUiTinyMarginEnd" showColon="true"></Label>
+                <Text text="{employee>EmployeeId}"></Text>
+            </HBox>
+            <HBox>
+                <Label text="{i18n>EmployeeSalary}" textAlign="Left" class="sapUiTinyMarginEnd" showColon="true"></Label>
+                <Text text="{employee>EmployeeId}"></Text>
+            </HBox>
+            <HBox>
+                <Label text="{i18n>DateOfJoining}" textAlign="Left" class="sapUiTinyMarginEnd" showColon="true"></Label>
+                <Text text="{employee>EmployeeId}"></Text>
+            </HBox>
+            <HBox>
+                <Label text="{i18n>Designation}" textAlign="Left" class="sapUiTinyMarginEnd" showColon="true"></Label>
+                <Text text="{employee>EmployeeId}"></Text>
+            </HBox> -->
+        </Panel>
+
+        <Panel headerText="{i18n>AdditionalInformation}" expandable="true" expanded="true" class="ListItemBlock sapUiTinyMargin">
+            
+            <form:Form width="100%" editable="{/editMode}">
+                <form:layout>
+                    <form:ResponsiveGridLayout  
+                    singleContainerFullSize="false" 
+                    labelSpanL="2"
+                    labelSpanM="3" />
+                </form:layout>
+                <form:FormContainer>
+                    <form:FormElement label="{i18n>PeriodOfBond}">
+                        <Text text="{employee>BondPeriod} {i18n>Years}"></Text>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>BalanceAmount}">
+                        <Text text="{employee>BalanceAmount}"></Text>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Company}">
+                        <Text text="{employee>BalanceAmount}"></Text>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>CompanyAddress}">
+                        <Text text="{employee>CompanyAddress}"></Text>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Experience}">
+                        <Text text="{employee>Experience} {i18n>Years}"></Text>
+                    </form:FormElement>
+                </form:FormContainer>
+            </form:Form>
+
+        </Panel>
+
+        
+    </Page>
+</mvc:View>

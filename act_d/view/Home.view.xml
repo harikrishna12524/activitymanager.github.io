@@ -1,0 +1,29 @@
+<mvc:View
+controllerName="Employee.controller.Home"
+xmlns="sap.m"
+xmlns:mvc="sap.ui.core.mvc" >
+    <Page title="{i18n>appTitle}">
+        <customHeader>
+            <Toolbar >
+                <Title text="ACTIVITY MANAGER"></Title>
+                <ToolbarSpacer />
+                    <Button icon="./img/icons/login.png" press=".onLogin" text="Login"/>
+                </Toolbar>
+        </customHeader>
+        
+        <Button text="Activity Manager" press=".onNavToActivityPage"></Button>
+        <Text text="Dont Click this button -- it will navigate on login"></Text>
+
+
+        <Dialog title="Import Sheet" id='sheetdialog'>
+            <Text text='If you already have an old sheet, please give us link to import.'></Text>
+            <Input placeholder="sheet link" width="90%" id="sheetidimport"></Input>
+            <beginButton>
+                <Button text="Ok" press=".onSetSheet"></Button>
+            </beginButton>
+            <endButton>
+                <Button text="Cancel" press=".onCloseDialog"></Button>
+            </endButton>
+        </Dialog>
+    </Page>
+</mvc:View>

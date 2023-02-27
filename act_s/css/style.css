@@ -1,0 +1,28 @@
+:root{
+    --itemHeaderFontSize: large;
+    --itemHeaderFontWeight: bold;
+    --itemHeaderFontColor: rgb(0, 153, 255);
+}
+
+.itemHeaderFont{
+    font-size: var(--itemHeaderFontSize);
+    font-weight: var(--itemHeaderFontWeight);
+    color: var(--itemHeaderFontColor);
+}
+
+.listImg{
+    border: 3px solid;
+}
+
+.ListItemBlock{
+    border-radius: 10px;
+    box-shadow: -2px 2px 2px lightgray;
+}
+
+.themeIcon{
+    color: var(--itemHeaderFontColor)
+}
+
+.hiddenIcon{
+    color: white;
+}
