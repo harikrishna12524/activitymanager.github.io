@@ -95,7 +95,7 @@ sap.ui.define([
 
         onAddActivity: function(oEvent){
             let path = oEvent.getSource().getBindingContext('activityModel').sPath + '/activities';
-            this.activityModel.getProperty(path).push('');
+            this.activityModel.getProperty(path).push({text : '', state: "NC"});
             this.activityModel.refresh();
         },
 
@@ -107,10 +107,10 @@ sap.ui.define([
 
         onCompleteActivity: function(oEvent){
             path = oEvent.getSource().getBindingContext('activityModel').sPath;
-            let completedTask = this.activityModel.getProperty(path.split("/").slice(0,-1).join("/")).splice(parseInt(path.split("/").pop()), 1);
+            let completedTask = this.activityModel.getProperty(path.split("/").slice(0,-1).join("/"))[parseInt(path.split("/").pop())];
+            completedTask["state"]  = "C"
             this.activityModel.refresh();
-
-        }
+        },
 
         // Dialog Callback
 

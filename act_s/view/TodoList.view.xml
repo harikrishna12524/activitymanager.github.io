@@ -49,7 +49,7 @@ xmlns:mvc="sap.ui.core.mvc" >
                             <form:formContainers>
                                 <form:FormContainer>
                                     <form:FormElement >
-                                        <TextArea value="{activityModel>}" editable="{= ${viewModel>/mode}==='edit'}">
+                                        <TextArea value="{activityModel>text}" editable="{= ${viewModel>/mode}==='edit'}" valueState="{= ${activityModel>state}==='C'?'Success':'Information'}">
                                             <layoutData>
                                                 <layout:GridData span="L11 M11 S8"></layout:GridData>
                                             </layoutData>
