@@ -1,0 +1,13 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+>
+<Dialog>
+    <Input value="{activityModel>str_time}" width="90%"></Input>
+    <Input value="{activityModel>end_time}" width="90%"></Input>
+    <Input value="{activityModel>topic}" width="90%"></Input>
+    <beginButton>
+        <Button text="Ok" press=".onCloseDialog"></Button>
+    </beginButton>
+</Dialog>
+</c:FragmentDefinition>

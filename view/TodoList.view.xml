@@ -1,0 +1,98 @@
+<mvc:View xmlns:richtexteditor="sap.ui.richtexteditor" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout"
+controllerName="Employee.controller.TodoList"
+xmlns="sap.m"
+xmlns:mvc="sap.ui.core.mvc" >
+    <Page title="Activity View" backgroundDesign="Transparent">
+        <customHeader>
+            <Toolbar >
+                <Button icon="sap-icon://menu2" />
+                <Button type="Back" press=".onNavBack"></Button>
+                <Title text="ACTIVITY VIEW"></Title>
+                <ToolbarSpacer />
+                <Button icon="sap-icon://edit" press=".onEdit" visible="{= ${viewModel>/mode}==='view'}"/>
+                <Button icon="sap-icon://decline" press=".onCancel" visible="{= ${viewModel>/mode}==='edit'}"/>
+                <Button icon="sap-icon://accept" press=".onSave" visible="{= ${viewModel>/mode}==='edit'}"/>
+                <Button icon="sap-icon://add" press=".onAddActivityHour" visible="{= ${viewModel>/mode}==='edit'}"/>
+                <Button icon="sap-icon://action" press=".onExport" />
+                <Button icon="sap-icon://syntax" press=".onExportAsJson" />
+                <!-- <core:Icon src="sap-icon://search"></core:Icon> -->
+            </Toolbar>
+        </customHeader>
+
+        <List items="{activityModel>/}" visible="{viewModel>/view_control/view_list}">
+            <items>
+                <CustomListItem class="ListItemBlock sapUiTinyMargin">
+                    <Panel headerText="{activityModel>str_time}-{activity>end_time} {activityModel>topic}" expandable="true">
+                        <headerToolbar>
+                            <Toolbar >
+                                <Title text="{activityModel>topic}"/>
+                                <Button icon="sap-icon://add" press=".onAddActivity" visible="{= ${viewModel>/mode}==='edit'}"></Button>
+                                <Button icon="sap-icon://edit" press=".onEditActivityHour" visible="{= ${viewModel>/mode}==='edit'}"></Button>
+                                <Button icon="sap-icon://delete" press=".onDeleteActivityHour" visible="{= ${viewModel>/mode}==='edit'}"></Button>
+                            </Toolbar>
+                        </headerToolbar>
+                        <form:Form formContainers="{activityModel>activities}">
+                            <form:layout>
+                                <form:ResponsiveGridLayout 
+                                singleContainerFullSize="false"
+                                columnsL="1"
+                                columnsM="1"
+                                labelSpanL="3"
+                                labelSpanM="3"
+                                labelSpanS="12"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                breakpointL="1024"
+                                />
+                            </form:layout>
+                            <form:formContainers>
+                                <form:FormContainer>
+                                    <form:FormElement >
+                                        <TextArea value="{activityModel>}" editable="{= ${viewModel>/mode}==='edit'}">
+                                            <layoutData>
+                                                <layout:GridData span="L11 M11 S8"></layout:GridData>
+                                            </layoutData>
+                                        </TextArea>
+                                        <Button icon="sap-icon://delete" press=".onDeleteActivity" visible="{= ${viewModel>/mode}==='edit'}">
+                                            <layoutData>
+                                                <layout:GridData span="L1 M1 S2"></layout:GridData>
+                                            </layoutData>
+                                        </Button>
+                                        <Button icon="sap-icon://accept" press=".onCompleteActivity" visible="{= ${viewModel>/mode}==='edit'}">
+                                            <layoutData>
+                                                <layout:GridData span="L1 M1 S2"></layout:GridData>
+                                            </layoutData>
+                                        </Button>
+                                    </form:FormElement>
+                                </form:FormContainer>
+                            </form:formContainers>
+                        </form:Form>
+                    </Panel>
+                    
+                </CustomListItem>
+            </items>
+        </List>
+
+
+        <Dialog id="activityHourDialog">
+            <!-- <TextArea value="{activityModel>str_time}" name="str_time" id='dialog_str_time' placeholder="Start Time" width="100%" rows="1"></TextArea>
+            <TextArea value="{activityModel>end_time}" name="end_time" id='dialog_end_time' placeholder="Ends Time" width="100%" rows="1"></TextArea> -->
+            <TextArea value="{activityModel>topic}" name="topic" id='dialog_topic' placeholder="Topic" width="100%" rows="1"></TextArea>
+            <beginButton>
+                <Button text="Ok" press=".onCloseDialog"></Button>
+            </beginButton>
+        </Dialog>
+
+        <Dialog id="textExportDialog">
+            <richtexteditor:RichTextEditor id="textEditor" />
+            <beginButton>
+                <Button text="Cancel" press=".onCloseDialog" ></Button>
+            </beginButton>
+            <endButton>
+                <Button text="Ok" press=".onCopyAndClose"></Button>
+            </endButton>
+        </Dialog>
+
+    </Page>
+</mvc:View>

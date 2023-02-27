@@ -1,0 +1,26 @@
+[
+    {
+        "CompanyId":1,
+        "Company":"Maventic Innovative Solutions Pvt. Ltd",
+        "CompanyAddress":"AECS B - Block, Koondhanalli, Bengaluru - 560017",
+        "Designation":"Trainee Developer",
+        "FirstName":"Harikrishna",
+        "LastName":"D",
+        "EmployeeId":"MM0672",
+        "Image":"./img/C1-MM0672.jpg",
+        "Salary":24000.00,
+        "BalanceAmount":5000.00,
+
+        "Email":"harikrishna12524@gmail.com",
+        "Phone":["9445842664"],
+        "Gender":"M",
+        "WorkType":"F",
+        "DateOfBirth":"2002/01/13",
+        "MaritalStatus":"M",
+        "Country":"India",
+
+        "JoiningDate":"2022/03/01",
+        "BondPeriod":2,
+        "Experience":4.5
+    }
+]

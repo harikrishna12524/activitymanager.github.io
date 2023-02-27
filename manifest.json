@@ -1,0 +1,132 @@
+{
+	"_version": "1.21.0",
+	"sap.app": {
+		"id": "Employee",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			],
+			"fallbackLocale": ""
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "Employee.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.110.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "Employee.i18n.i18n",
+					"supportedLocales": [
+						""
+					],
+					"fallbackLocale": ""
+				}
+			},
+			"employee":{
+				"type":"sap.ui.model.json.JSONModel",
+				"uri":"./data/Employee.json"
+			},
+			"activity":{
+				"type":"sap.ui.model.json.JSONModel",
+				"uri":"./data/Activity.json"
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"type": "View",
+				"viewType": "XML",
+				"path": "Employee.view",
+				"controlId": "app",
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+					"pattern":"",
+					"name":"home",
+					"target":"home"
+				},{
+					"pattern":"list",
+					"name":"list",
+					"target":"list"
+				},{
+					"pattern":"detail{employeePath}",
+					"name":"detail",
+					"target":"detail"
+				},{
+					"pattern":"create",
+					"name":"create",
+					"target":"create"
+				},{
+					"pattern":"activity",
+					"name":"activity",
+					"target":"activity"
+				},{
+					"pattern":"activityview",
+					"name":"activityview",
+					"target":"activityview"
+				},{
+					"pattern":"todolist",
+					"name":"todolist",
+					"target":"todolist"
+				}
+			],
+			"targets": {
+				"home":{
+					"id":"home",
+					"name":"Home"
+				},
+				"list":{
+					"id":"list",
+					"name":"List"
+				},
+				"detail":{
+					"id":"detail",
+					"name":"Detail"
+				},
+				"create":{
+					"id":"create",
+					"name":"Create"
+				},
+				"activity":{
+					"id":"activity",
+					"name":"Activity"
+				},
+				"activityview":{
+					"id":"activityview",
+					"name":"ActivityView"
+				},
+				"todolist":{
+					"id":"todolist",
+					"name":"TodoList"
+				}
+			}
+		}
+	}
+}

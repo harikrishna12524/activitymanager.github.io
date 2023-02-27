@@ -1,0 +1,119 @@
+<mvc:View xmlns:unified="sap.ui.unified" xmlns:upload="sap.m.upload" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core"
+controllerName="Employee.controller.Create"
+xmlns="sap.m"
+xmlns:mvc="sap.ui.core.mvc" >
+    <Page backgroundDesign="Transparent">
+        <customHeader>
+            <Toolbar >
+                <Button icon="sap-icon://menu2" />
+                <Button type="Back" press=".onNavBack"></Button>
+                <Title text="{i18n>AddNewEmployee}"></Title>
+                <ToolbarSpacer />
+                <Button iconFirst="false" icon="sap-icon://save" press="onSave" />
+            </Toolbar>
+        </customHeader>
+
+        <form:Form editable="true">
+            <form:layout>
+                <form:ResponsiveGridLayout
+                singleContainerFullSize="false"
+                columnsL="2"
+                columnsM="1"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                breakpointL="1024"
+                />
+            </form:layout>
+            <form:formContainers>
+                <form:FormContainer >
+                    <form:FormElement label="{i18n>EmployeeName}">
+                        <Input value="{/FirstName}" placeholder="{i18n>FirstName}"></Input>
+                        <Input value="{/LastName}" placeholder="{i18n>LastName}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Gender}">
+                        <RadioButtonGroup columns="3">
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>Male}"/>
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>Female}"/>
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>PreferNotToSay}"/>
+                        </RadioButtonGroup>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>DateOfBirth}">
+                        <DatePicker value="{/DateOfBirth}" valueFormat="yyyy/MM/dd" displayFormat="MMM dd, yyyy" placeholder="{i18n>DateOfBirth}"></DatePicker>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Email}">
+                        <Input value="{/Email}" placeholder="{i18n>Email}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Phone}">
+                        <Input value="{/Phone/0}" placeholder="{i18n>PhoneNumber} 1"></Input>
+                        <Input value="{/Phone/1}" placeholder="{i18n>PhoneNumber} 2"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Country}">
+                        <Input value="{/Country}" placeholder="{i18n>Country}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>MaritalStatus}">
+                        <RadioButtonGroup columns="3">
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>Bachelor}"/>
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>Married}"/>
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>NotTogether}"/>
+                        </RadioButtonGroup>
+                    </form:FormElement>
+
+                    <form:FormElement label="{i18n>Image}">
+                        <unified:FileUploader >
+
+                        </unified:FileUploader>
+                        <Button ></Button>
+                    </form:FormElement>
+                </form:FormContainer>
+
+
+                <form:FormContainer >
+                    <form:FormElement label="{i18n>CompanyName}">
+                        <Input value="{/Company}" placeholder="{i18n>CompanyName}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>CompanyAddress}">
+                        <Input value="{/CompanyAddress/0}" placeholder="{i18n>Addresspt1}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>CompanyLocation}">
+                        <Input value="{/CompanyAddress/1}" placeholder="{i18n>State}"></Input>
+                        <Input value="{/CompanyAddress/2}" placeholder="{i18n>Country}"></Input>
+                        <Input value="{/CompanyAddress/3}" placeholder="{i18n>Pincode}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Designation}">
+                        <Input value="{/Designation}" placeholder="{i18n>Designation}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Salary}">
+                        <Input value="{/Salary}" placeholder="{i18n>Salary}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>BalanceAmount}">
+                        <Input value="{/BalanceAmount}" placeholder="{i18n>BalanceAmount}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>BondPeriod}">
+                        <Input value="{/BondPeriod}" placeholder="{i18n>BondPeriod}"></Input>
+                    </form:FormElement>
+                    <form:FormElement label="{i18n>Experience}">
+                        <Input value="{/Experience}" placeholder="{i18n>Experience}"></Input>
+                    </form:FormElement>
+                    
+                    <form:FormElement label="{i18n>JoiningDate}">
+                        <DatePicker valueFormat="yyyy/MM/dd" value="{/JoiningDate}" displayFormat="MMM dd, yyyy" placeholder="{i18n>JoiningDate}"></DatePicker>
+                    </form:FormElement>
+
+                    <form:FormElement label="{i18n>WorkType}">
+                        <RadioButtonGroup columns="3">
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>FullTime}"/>
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>PartTime}"/>
+                            <RadioButton class="sapUiSmallMarginEnd" text="{i18n>Probational}"/>
+                        </RadioButtonGroup>
+                    </form:FormElement>
+                </form:FormContainer>
+            </form:formContainers>
+        </form:Form>
+
+        
+    </Page>
+</mvc:View>
