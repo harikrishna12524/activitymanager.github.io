@@ -2,12 +2,12 @@
 controllerName="Employee.controller.TodoList"
 xmlns="sap.m"
 xmlns:mvc="sap.ui.core.mvc" >
-    <Page title="Activity View" backgroundDesign="Transparent">
+    <Page  backgroundDesign="Transparent">
         <customHeader>
             <Toolbar >
                 <Button icon="sap-icon://menu2" />
                 <Button type="Back" press=".onNavBack"></Button>
-                <Title text="ACTIVITY VIEW"></Title>
+                <Title text="TODO LIST"></Title>
                 <ToolbarSpacer />
                 <Button icon="sap-icon://edit" press=".onEdit" visible="{= ${viewModel>/mode}==='view'}"/>
                 <Button icon="sap-icon://decline" press=".onCancel" visible="{= ${viewModel>/mode}==='edit'}"/>
